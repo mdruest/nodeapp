@@ -15,7 +15,7 @@ var http =require('http');
 var fs =require('fs');
 var os =require('os');
 
-http.createServer(
+var app= http.createServer(
 	function(req,res){
 
 		fs.readFile('index.html',function(err,data){
@@ -42,7 +42,25 @@ http.createServer(
 		res.write("<br/><h1>HELLO</h1>");
 		res.end(data);
 	});
+
 	
-}).listen(1337,'127.0.0.1');
+});
+
+/*
+app.get('/about', function(req, res){
+  res.send('<h1>Hello World ABOUT</h1>');
+});
+
+//HOME
+app.get('/', function(req, res){
+  res.send('<h1>Hello World HOME</h1>');
+});
+
+//Anything
+app.get('/*', function(req, res){
+  res.send('<h1>Hello World HOME</h1>');
+});
+*/
+app.listen(1337,'127.0.0.1');
 
 console.log('Webserver has started');
